@@ -1,0 +1,35 @@
+paths:
+  runs_dir: data/runs
+  cache_db: data/pubmed_cache.sqlite
+  corpus_jsonl: data/corpus.jsonl
+retrieval:
+  top_k: 10
+  bm25_k1: 1.2
+  bm25_b: 0.75
+snippets:
+  snippet_k: 10
+  max_sentences_per_doc: 50
+  mmr_lambda: 0.7
+stressors:
+  noise:
+    enabled: true
+    distractor_k: 5
+  conflict:
+    enabled: true
+    similarity_threshold: 0.3
+    llm_judge: false
+  unanswerable:
+    enabled: true
+    remove_top_n: 2
+  pico_mismatch:
+    enabled: true
+    mismatch_threshold: 0.5
+pico:
+  llm_enabled: false
+  similarity_threshold: 0.35
+evaluation:
+  snippet_overlap_threshold: 0.2
+  groundedness_threshold: 0.3
+  abstain_token: "insufficient evidence"
+logging:
+  level: INFO
